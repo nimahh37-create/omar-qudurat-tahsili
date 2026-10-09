@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبادرة الأستاذ عمر هرشان | مرجع القدرات والتحصيلي</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">ع</div>
+    <div>
+      <div class="edu-badge">🏛️ الإدارة العامة للتعليم بمنطقة مكة المكرمة</div>
+      <h1>مبادرة الأستاذ عمر هرشان</h1>
+      <p>المرجع الشامل للقدرات والتحصيلي — ناصر عبدالكريم • المعاصر • المفكر • أينشتاين + أهم التجميعات</p>
+    </div>
+  </div>
+  <nav class="nav" id="mainNav">
+    <button data-sec="home" class="active">الرئيسية</button>
+    <button data-sec="sources">📚 المراجع الأربعة</button>
+    <button data-sec="qudurat">إثراءات القدرات</button>
+    <button data-sec="tahsili">إثراءات التحصيلي</button>
+    <button data-sec="exams">اختبارات محاكية (6)</button>
+    <button data-sec="videos">🎬 مكتبة الفيديو</button>
+    <button data-sec="courses">🎓 دليل الدورات</button>
+    <button data-sec="mustaqbal">📱 تطبيق مستقبلهم</button>
+    <button data-sec="parent">ولي الأمر</button>
+    <button data-sec="dashboard">صاحب المبادرة</button>
+  </nav>
+    <button data-sec="parent">ولي الأمر</button>
+    <button data-sec="dashboard">صاحب المبادرة</button>
+  </nav>
+  <div class="userbox" id="userbox"></div>
+</header>
+
+<main>
+<!-- HOME / LOGIN -->
+<section id="sec-home" class="panel show">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="badge">تحت إشراف تعليم مكة • للمرحلة الثانوية • بنين وبنات</span>
+      <h2>ذاكر بذكاء.. اختبر نفسك.. واحصل على شهادتك</h2>
+      <p>منصة مرجعية تجمع خلاصة <b>أربعة مراجع معتمدة: ناصر عبدالكريم • المعاصر • المفكر • أينشتاين</b> للقدرات والتحصيلي، مع <b>أهم التجميعات والأسئلة المتكررة</b> في اختبارات قياس، وفيديوهات شرح ودليل دورات وتكامل مع تطبيق مستقبلهم لمتابعة ولي الأمر.</p>
+      <div class="stats">
+        <div><b id="stStudents">0</b><span>طالب مسجل</span></div>
+        <div><b id="stTests">0</b><span>اختبار منجز</span></div>
+        <div><b id="stAvg">0%</b><span>متوسط الدرجات</span></div>
+        <div><b>64</b><span>سؤال محاكي (6 اختبارات)</span></div>
+      </div>
+    </div>
+    <div class="login-card" id="loginCard">
+      <h3>تسجيل الدخول للمنصة</h3>
+      <p class="muted">الدخول باسم المدرسة واسم المستخدم حسب الصفة</p>
+      <label>اسم المدرسة</label>
+      <input id="inSchool" placeholder="مثال: ثانوية الملك فهد">
+      <label>الاسم الكامل</label>
+      <input id="inName" placeholder="مثال: محمد عبدالله القحطاني">
+      <label>الصفة</label>
+      <select id="inRole">
+        <option value="طالب">طالب / طالبة</option>
+        <option value="معلم">معلم / معلمة</option>
+        <option value="مدير">مدير / مديرة</option>
+        <option value="ولي أمر">ولي أمر</option>
+        <option value="صاحب المبادرة">صاحب المبادرة</option>
+      </select>
+      <div id="ownerPassWrap" style="display:none">
+        <label>رمز صاحب المبادرة (للتجربة: 1234)</label>
+        <input id="inPass" type="password" placeholder="••••">
+      </div>
+      <button class="btn primary" onclick="login()">دخول المنصة</button>
+      <small class="muted">يُحفظ دخولك ونتائجك في جهازك تلقائياً لمتابعة ولي الأمر وصاحب المبادرة.</small>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="ico">📝</div>
+      <h3>اختبارات محاكية بالوقت</h3>
+      <p>3 اختبارات: كمي + لفظي + تحصيلي شامل، تصحيح فوري ودرجة من 100.</p>
+      <button class="btn" onclick="go('exams')">ابدأ الاختبار</button>
+    </div>
+    <div class="card">
+      <div class="ico">🎓</div>
+      <h3>شهادة شكر لإنهاء المهمة</h3>
+      <p>عند اجتياز أي اختبار (60%+) تحصل على شهادة باسمك ومدرستك قابلة للطباعة.</p>
+      <button class="btn" onclick="go('exams')">احصل على شهادتك</button>
+    </div>
+    <div class="card">
+      <div class="ico">👨‍👩‍👦</div>
+      <h3>متابعة ولي الأمر</h3>
+      <p>أيقونة خاصة لولي الأمر لمتابعة تقدم الأبناء ودرجاتهم أولاً بأول.</p>
+      <button class="btn" onclick="go('parent')">متابعة الأبناء</button>
+    </div>
+  </div>
+
+  <div class="notice">
+    <b>📚 المنهجية:</b> المحتوى خلاصة المراجع الأربعة (<b>ناصر عبدالكريم + المعاصر + المفكر + أينشتاين</b>): التجميعات + القوانين الذهبية + التأسيس المتدرج + استراتيجيات التفكير + تحديات التميز، مع قسم <b>«التجميعات المهمة»</b> للأسئلة الأكثر تكراراً.
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sec-sources" class="panel">
+  <h2 class="sec-title">📚 المراجع الأربعة المعتمدة في المبادرة</h2>
+  <p class="muted">كل إثراء واختبار في المنصة مبني على هذه المراجع الأربعة — اختر مرجعك وتابع خلاصته.</p>
+  <div class="grid4">
+    <div class="card ref"><div class="ico">📘</div><h3>ناصر عبدالكريم</h3><span class="vcat">المرجع الأساس • تجميعات + قوانين ذهبية</span><p>التجميعات السنوية، طرق الحل السريع، القوانين المختصرة للكمي، وملخصات التحصيلي المركزة.</p><ul><li>التجميعات + الحل السريع بالخيارات</li><li>القوانين الذهبية للهندسة والجبر</li><li>ملخص التحصيلي لكل مادة</li></ul><button class="btn primary" onclick="go('exams')">اختبر نفسك بأسلوبه</button></div>
+    <div class="card ref"><div class="ico">📗</div><h3>المعاصر</h3><span class="vcat">التأسيس المتدرج • شرح + تدريب</span><p>التأسيس من الصفر، شرح مفصل بالخطوات، تدريبات متدرجة من السهل للمتقدم، واختبارات فصلية.</p><ul><li>تأسيس الكسور والنسب والمعادلات</li><li>تدريب اللفظي بأنواعه الستة</li><li>مراجعات التحصيلي المبوبة</li></ul><button class="btn primary" onclick="go('qudurat')">إثراءات التأسيس</button></div>
+    <div class="card ref"><div class="ico">📙</div><h3>المفكر</h3><span class="vcat">الفهم العميق • استراتيجيات التفكير</span><p>استراتيجيات المقارنة والاستبعاد، تحليل القطع، خرائط المفاهيم العلمية، وأسئلة التفكير العليا.</p><ul><li>استراتيجية الاستبعاد والمقارنة</li><li>تحليل قطع الاستيعاب</li><li>خرائط مفاهيم الفيزياء والكيمياء</li></ul><button class="btn primary" onclick="go('tahsili')">خرائط المفاهيم</button></div>
+    <div class="card ref"><div class="ico">📕</div><h3>أينشتاين</h3><span class="vcat">التميز والتفوق • أسئلة عالية المستوى</span><p>أسئلة المستوى المتقدم، تحديات الوقت، محاكيات صعبة للمتفوقين، ومراجعات ليلة الاختبار.</p><ul><li>تحديات الكمي المتقدم (اختبار 2)</li><li>قطع اللفظي الصعبة</li><li>تجميعات التحصيلي المركزة (اختبار 2)</li></ul><button class="btn primary" onclick="go('videos')">فيديوهات التميز</button></div>
+  </div>
+  <div class="notice"><b>🗺️ كيف تذاكر بالمراجع الأربعة؟</b> ابدأ بالتأسيس من <b>المعاصر</b> ← أتقن الحل السريع من <b>ناصر عبدالكريم</b> ← عمّق الفهم مع <b>المفكر</b> ← تحدَّ نفسك مع <b>أينشتاين</b> ← ثم ادخل الاختبارات المحاكية الستة واحصل على شهادتك.</div>
+</section>
+
+<!-- QUDURAT -->
+<section id="sec-qudurat" class="panel">
+  <h2 class="sec-title">إثراءات وشرح القدرات: اللفظي والكمي</h2>
+  <p class="muted">شرح مبسط + قوانين + مثال محلول + التجميعات مهمة لكل قسم. <button class="btn primary" onclick="go('videos')">🎬 شاهد فيديوهات الشرح</button></p>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('q-verbal',this)">اللفظي</button>
+    <button class="tab" onclick="switchTab('q-quant',this)">الكمي</button>
+    <button class="tab" onclick="switchTab('q-leaks',this)">التجميعات القدرات المهمة 🔥</button>
+  </div>
+
+  <div id="tab-q-verbal" class="tabpanel show">
+    <div class="grid2">
+      <div class="lesson"><h3>1) التناظر اللفظي</h3><p>اختر العلاقة المشابهة. حدد علاقة الكلمتين أولاً (جزء من كل / سبب ونتيجة / آلة ووظيفة).</p><div class="ex">مثال: قلم : كتابة ← <b>سكين : تقطيع</b> (أداة ووظيفتها).</div><div class="leak">🔥 تجميع متكرر: مدرسة : تعليم — مستشفى : علاج | عين : إبصار — أذن : سمع</div></div>
+      <div class="lesson"><h3>2) إكمال الجمل</h3><p>اقرأ الجملة كاملة، حدد النبرة (إيجابية/سلبية)، وجرّب كل خيار.</p><div class="ex">مثال: من ___ على دراسته ___ التفوق. ← <b>واظب / حصد</b></div><div class="leak">🔥 تجميع: كلمات (التأني، الاستيعاب، التحدي، المثابرة) تتكرر كإجابات صحيحة.</div></div>
+      <div class="lesson"><h3>3) الخطأ السياقي</h3><p>كلمة لا تنسجم مع سياق الجملة. ابحث عن الكلمة الشاذة في المعنى.</p><div class="ex">مثال: كان الكتاب ممتعاً وشيقاً ومملاً ← الخطأ: <b>مملاً</b></div></div>
+      <div class="lesson"><h3>4) المفردة الشاذة</h3><p>ثلاث كلمات من نفس الحقل وواحدة مختلفة.</p><div class="ex">سيف - رمح - درع - قوس ← الشاذة: <b>درع</b> (دفاعية والبقية هجومية).</div></div>
+      <div class="lesson"><h3>5) استيعاب المقروء</h3><p>اقرأ السؤال أولاً ثم اقرأ القطعة بحثاً عن الإجابة. لا تستنتج من خارج النص.</p><div class="ex">قاعدة ذهبية: الإجابة دائماً داخل القطعة حرفياً أو بمعناها.</div></div>
+      <div class="lesson"><h3>6) استراتيجيات اللفظي السريع</h3><ul><li>استبعد الخيارين المتشابهين غالباً.</li><li>الكلمة الغريبة جداً غالباً ليست إجابة إكمال الجمل.</li><li>خصص 30 دقيقة للفظي ولا تتجاوز دقيقتين للسؤال.</li></ul></div>
+    </div>
+  </div>
+
+  <div id="tab-q-quant" class="tabpanel">
+    <div class="grid2">
+      <div class="lesson"><h3>1) الحساب والنسب</h3><p>النسبة = الجزء ÷ الكل × 100. التناسب الطردي والعكسي أساس 40% من الأسئلة.</p><div class="ex">مثال: 25% من 240 = <b>60</b>. إذا كان 3 عمال ينجزون عملاً في 6 أيام فـ 6 عمال في <b>3 أيام</b> (عكسي).</div></div>
+      <div class="lesson"><h3>2) الجبر والمعادلات</h3><p>احفظ: (س+ص)² = س²+2س ص+ص² | الفرق بين مربعين: س²−ص² = (س+ص)(س−ص).</p><div class="ex">إذا س+ص=10، س ص=21 فإن س²+ص² = 100−42 = <b>58</b>.</div></div>
+      <div class="lesson"><h3>3) الهندسة</h3><p>مساحة المثلث=½×القاعدة×الارتفاع | محيط الدائرة=2πنق | فيثاغورس: 3-4-5 و 5-12-13 و 6-8-10.</p><div class="ex">مثلث قائم 6 و 8 فالوتر = <b>10</b> مباشرة بدون حساب.</div></div>
+      <div class="lesson"><h3>4) الإحصاء والاحتمال</h3><p>المتوسط=المجموع÷العدد | الوسيط=القيمة الوسطى | الاحتمال=المطلوب÷الممكن.</p><div class="ex">احتمال ظهور عدد زوجي في حجر نرد = 3÷6 = <b>½</b>.</div></div>
+      <div class="lesson"><h3>5) المقارنة بين قيمتين</h3><p>لا تحسب كاملاً: بسّط، عوّض برقم سهل (1 أو 10)، وقارن.</p><div class="ex">قارن ⅜ و ⅖: وحّد المقام ← 15/40 مقابل 16/40 إذن القيمة الثانية أكبر.</div></div>
+      <div class="lesson"><h3>6) طرق الحل السريع (ناصر عبدالكريم)</h3><ul><li>التجريب بالخيارات يوفّر 50% من الوقت.</li><li>الأعداد الكبيرة: احذف الأصفار ثم أعدها.</li><li>أسئلة «أي القيم أكبر» جرّب التعويض بـ 2.</li></ul></div>
+    </div>
+  </div>
+
+  <div id="tab-q-leaks" class="tabpanel">
+    <div class="leakbox">
+      <h3>🔥 أهم 10 التجميعات قدرات تتكرر كل سنة</h3>
+      <ol>
+        <li>سؤال الأعمار: عمر الأب 3 أضعاف الابن وبعد 10 سنوات يصبح الضعف — احفظ طريقة المعادلة.</li>
+        <li>سؤال الساعات والقطارات (السرعة = المسافة ÷ الزمن) يتكرر بصيغ مختلفة.</li>
+        <li>التناظر: (سفينة:ربان) و (طائرة:قائد) من أكثر الأسئلة تكراراً.</li>
+        <li>إكمال الجمل بكلمة «الاستدامة» و«المواظبة» إجابات متكررة 2023-2025.</li>
+        <li>مقارنة الكسور العشرية: 0.5 مقابل 0.55 — انتبه لعدد المنازل.</li>
+        <li>زوايا المثلث إذا كانت النسبة 1:2:3 فالزوايا 30-60-90.</li>
+        <li>عدد المربعات والمثلثات في الشكل — عدّ الصغير ثم الكبير.</li>
+        <li>سؤال «أكبر عدد يقبل القسمة» — جرّب القسمة على الخيارات من الأكبر.</li>
+        <li>قطعة «الذكاء الاصطناعي» و«الأمن السيبراني» تكررت في اللفظي.</li>
+        <li>المتتابعات: 2، 6، 12، 20... الفرق يزيد 2 كل مرة (+4,+6,+8).</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- TAHSILI -->
+<section id="sec-tahsili" class="panel">
+  <h2 class="sec-title">إثراءات وشرح التحصيلي: رياضيات • فيزياء • كيمياء • أحياء</h2>
+  <p class="muted">خلاصة ناصر عبدالكريم للتحصيلي: مفاهيم + قوانين + التجميعات. <button class="btn primary" onclick="go('videos')">🎬 شاهد فيديوهات الشرح</button></p>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('t-math',this)">رياضيات</button>
+    <button class="tab" onclick="switchTab('t-phy',this)">فيزياء</button>
+    <button class="tab" onclick="switchTab('t-che',this)">كيمياء</button>
+    <button class="tab" onclick="switchTab('t-bio',this)">أحياء</button>
+    <button class="tab" onclick="switchTab('t-leaks',this)">التجميعات التحصيلي 🔥</button>
+  </div>
+  <div id="tab-t-math" class="tabpanel show">
+    <div class="grid2">
+      <div class="lesson"><h3>الدوال والنهايات</h3><p>نهاية كثيرة الحدود = التعويض المباشر. المشتقة: مشتقة س^ن = ن س^(ن−1).</p><div class="ex">مشتقة س³+2س = <b>3س²+2</b>. نهاية (س²−1)/(س−1) عند س=1 تساوي <b>2</b> (حلّل ثم عوّض).</div></div>
+      <div class="lesson"><h3>المثلثات</h3><p>جا²+جتا²=1 | جا30=½ | جتا60=½ | ظا45=1. قانون الجيب وجيب التمام للمسائل.</p></div>
+      <div class="lesson"><h3>اللوغاريتمات</h3><p>لو(أ×ب)=لوأ+لوب | لو(أ^ن)=ن لوأ | لو10=1.</p><div class="ex">لو2+لو5 = لو10 = <b>1</b> (تجميع متكرر).</div></div>
+      <div class="lesson"><h3>الاحتمال والتوافيق</h3><p>تباديل: ترتيب مهم. توافيق: ترتيب غير مهم. مضروب 5! = 120.</p></div>
+    </div>
+  </div>
+  <div id="tab-t-phy" class="tabpanel">
+    <div class="grid2">
+      <div class="lesson"><h3>الحركة والقوى</h3><p>ع=ف÷ز | ت=Δع÷ز | ق=ك×ت | الوزن=ك×ج (ج≈10). قوانين نيوتن الثلاثة أساس كل اختبار.</p><div class="ex">جسم كتلته 5كجم بتسارع 4م/ث² فقوته = <b>20 نيوتن</b>.</div></div>
+      <div class="lesson"><h3>الشغل والطاقة</h3><p>ش=ق×ف | طاقة حركية=½ك ع² | كامنة=ك ج ف | القدرة=ش÷ز (واط).</p></div>
+      <div class="lesson"><h3>الكهرباء</h3><p>ج=م×ت (أوم) | قدرة=ج×ت | التوصيل على التوالي يجمع المقاومة، والتوازي يقللها.</p><div class="ex">تجميع: مقاومة 6 و 3 على التوازي = <b>2 أوم</b>.</div></div>
+      <div class="lesson"><h3>الموجات والضوء</h3><p>ع=ت×λ | وحدة التردد هرتز | انكسار الضوء + العدسات (محدبة تجمع، مقعرة تفرق).</p></div>
+    </div>
+  </div>
+  <div id="tab-t-che" class="tabpanel">
+    <div class="grid2">
+      <div class="lesson"><h3>الجدول الدوري والروابط</h3><p>الفلزات يسار، اللافلزات يمين. الرابطة الأيونية (فلز+لافلز)، التساهمية (لافلز+لافلز).</p></div>
+      <div class="lesson"><h3>المول والحسابات</h3><p>عدد أفوجادرو 6.02×10²³ | المول=الكتلة÷الكتلة المولية | المولارية=مول÷لتر.</p><div class="ex">عدد مولات 36جم ماء (18جم/مول) = <b>2 مول</b>.</div></div>
+      <div class="lesson"><h3>الأحماض والقواعد</h3><p>pH أقل من 7 حمضي، أكبر من 7 قاعدي. التعادل: حمض+قاعدة ← ملح+ماء.</p></div>
+      <div class="lesson"><h3>العضوية</h3><p>ألكان (رابطة أحادية)، ألكين (ثنائية)، ألكاين (ثلاثية). المجموعة الوظيفية للكحول OH-.</p></div>
+    </div>
+  </div>
+  <div id="tab-t-bio" class="tabpanel">
+    <div class="grid2">
+      <div class="lesson"><h3>الخلية والوراثة</h3><p>الميتوكندريا=الطاقة، النواة=المعلومات. قانون مندل: السائد يظهر في الجيل الأول.</p><div class="ex">تزاوج Aa × Aa يعطي نسبة سائد:متنحي = <b>3:1</b>.</div></div>
+      <div class="lesson"><h3>أجهزة الجسم</h3><p>القلب 4 حجرات | كريات الدم الحمراء تحمل الأكسجين (هيموجلوبين) | الأنسولين من البنكرياس يخفض السكر.</p></div>
+      <div class="lesson"><h3>البيئة والتصنيف</h3><p>المنتج ← مستهلك ← محلل. أكبر مرتبة تصنيفية: المملكة، وأصغرها: النوع.</p></div>
+      <div class="lesson"><h3>التكاثر والمناعة</h3><p>التلقيح في قناة فالوب. اللقاح = مناعة مكتسبة نشطة. فصائل الدم: O معطي عام، AB مستقبل عام.</p></div>
+    </div>
+  </div>
+  <div id="tab-t-leaks" class="tabpanel">
+    <div class="leakbox">
+      <h3>🔥 أهم التجميعات التحصيلي العلمي</h3>
+      <ol>
+        <li>مشتقة ونهاية الدوال — سؤال ثابت كل سنة.</li>
+        <li>قانون أوم وحساب المقاومة المكافئة (توالي وتوازي).</li>
+        <li>حساب عدد المولات من الكتلة — مباشر وسهل.</li>
+        <li>الرقم الهيدروجيني pH وتمييز الحمض من القاعدة.</li>
+        <li>مسائل السرعة والتسارع وقانون نيوتن الثاني (ق=ك×ت).</li>
+        <li>نسب مندل 3:1 و 9:3:3:1 في الوراثة.</li>
+        <li>الخلية: وظيفة الميتوكندريا والبلاستيدة الخضراء.</li>
+        <li>اللوغاريتم: لو2+لو5=1 يتكرر بصيغ مختلفة.</li>
+        <li>المتطابقات المثلثية جا²+جتا²=1.</li>
+        <li>الروابط: أي مما يلي مركب أيوني؟ (NaCl إجابة متكررة).</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="sec-videos" class="panel">
+  <h2 class="sec-title">🎬 مكتبة فيديوهات الشرح من يوتيوب</h2>
+  <p class="muted">شروحات مرئية مرتبطة بكل إثراء — أضف رابط أي مقطع يوتيوب وسيظهر مضمّناً فوراً. الروابط الجاهزة تفتح بحث يوتيوب مباشرة.</p>
+  <div class="tabs">
+    <button class="tab active" onclick="filterVideos('all',this)">الكل</button>
+    <button class="tab" onclick="filterVideos('قدرات كمي',this)">قدرات كمي</button>
+    <button class="tab" onclick="filterVideos('قدرات لفظي',this)">قدرات لفظي</button>
+    <button class="tab" onclick="filterVideos('تحصيلي',this)">تحصيلي</button>
+    <button class="tab" onclick="filterVideos('التجميعات',this)">التجميعات</button>
+  </div>
+  <div class="card">
+    <h3>➕ إضافة مقطع جديد (للمعلم / صاحب المبادرة)</h3>
+    <div class="row">
+      <input id="vidTitle" placeholder="عنوان المقطع: مثال: شرح التناظر اللفظي">
+      <input id="vidUrl" placeholder="رابط يوتيوب: الصقه هنا...">
+      <select id="vidCat" style="padding:10px;border-radius:10px;border:1px solid #cbd5e1">
+        <option>قدرات كمي</option><option>قدرات لفظي</option><option>تحصيلي</option><option>التجميعات</option>
+      </select>
+      <button class="btn primary" onclick="addVideo()">إضافة</button>
+    </div>
+    <small class="muted">يقبل كل صيغ روابط يوتيوب (watch / youtu.be / shorts / embed) ويحوّلها تلقائياً لمشغل مضمّن.</small>
+  </div>
+  <h3>🔗 قنوات وشروحات جاهزة (تفتح في يوتيوب)</h3>
+  <div class="grid3">
+    <div class="card"><h3>شرح الكمي — ناصر عبدالكريم</h3><p class="muted">ابحث وشاهد أحدث الشروحات</p><a class="btn primary" style="text-decoration:none;display:inline-block" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=%D8%B4%D8%B1%D8%AD+%D9%82%D8%AF%D8%B1%D8%A7%D8%AA+%D9%83%D9%85%D9%8A+%D9%86%D8%A7%D8%B5%D8%B1+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85">▶ مشاهدة على يوتيوب</a></div>
+    <div class="card"><h3>شرح اللفظي — التناظر وإكمال الجمل</h3><p class="muted">ابحث وشاهد أحدث الشروحات</p><a class="btn primary" style="text-decoration:none;display:inline-block" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=%D8%B4%D8%B1%D8%AD+%D9%82%D8%AF%D8%B1%D8%A7%D8%AA+%D9%84%D9%81%D8%B8%D9%8A+%D8%AA%D9%86%D8%A7%D8%B8%D8%B1+%D8%A7%D9%83%D9%85%D8%A7%D9%84+%D8%AC%D9%85%D9%84">▶ مشاهدة على يوتيوب</a></div>
+    <div class="card"><h3>شرح التحصيلي — فيزياء كيمياء أحياء</h3><p class="muted">ابحث وشاهد أحدث الشروحات</p><a class="btn primary" style="text-decoration:none;display:inline-block" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=%D8%B4%D8%B1%D8%AD+%D8%AA%D8%AD%D8%B5%D9%8A%D9%84%D9%8A+%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1+%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A1+%D8%A7%D8%AD%D9%8A%D8%A7%D8%A1">▶ مشاهدة على يوتيوب</a></div>
+  </div>
+  <h3>📺 المقاطع المضافة في المنصة</h3>
+  <div id="videoGrid" class="grid2"></div>
+</section>
+
+<!-- EXAMS -->
+<section id="sec-exams" class="panel">
+  <h2 class="sec-title">الاختبارات المحاكية + الدرجات + شهادة الشكر</h2>
+  <p class="muted">اختر اختباراً — المؤقت يعمل تلقائياً — الدرجة من 100 — الشهادة عند 60% فأكثر.</p>
+  <div class="grid3" id="examCards">
+    <div class="card"><div class="ico">🔢</div><h3>محاكي الكمي (1) تأسيسي</h3><p>10 أسئلة • 15 دقيقة • حساب ونسب وهندسة</p><button class="btn primary" onclick="startExam('quant')">ابدأ الاختبار</button></div>
+    <div class="card"><div class="ico">📖</div><h3>محاكي اللفظي (1) تأسيسي</h3><p>10 أسئلة • 15 دقيقة • تناظر وإكمال وشاذة</p><button class="btn primary" onclick="startExam('verbal')">ابدأ الاختبار</button></div>
+    <div class="card"><div class="ico">🔬</div><h3>محاكي التحصيلي الشامل (1)</h3><p>12 سؤالاً • 20 دقيقة • رياضيات فيزياء كيمياء أحياء</p><button class="btn primary" onclick="startExam('tahsili')">ابدأ الاختبار</button></div>
+    <div class="card"><div class="ico">🧮</div><h3>محاكي الكمي (2) متقدم</h3><p>10 أسئلة • 15 دقيقة • معادلات ومقارنات ومتتابعات</p><button class="btn primary" onclick="startExam('quant2')">ابدأ الاختبار</button></div>
+    <div class="card"><div class="ico">📚</div><h3>محاكي اللفظي (2) متقدم + مقروء</h3><p>10 أسئلة • 15 دقيقة • قطع واستيعاب وخطأ سياقي</p><button class="btn primary" onclick="startExam('verbal2')">ابدأ الاختبار</button></div>
+    <div class="card"><div class="ico">⚗️</div><h3>محاكي التحصيلي (2) التجميعات مركزة</h3><p>12 سؤالاً • 20 دقيقة • الأكثر تكراراً 2023-2025</p><button class="btn primary" onclick="startExam('tahsili2')">ابدأ الاختبار</button></div>
+  </div>
+  <div id="examArea"></div>
+  <div id="certArea"></div>
+  <h3 style="margin-top:24px">سجل نتائجي</h3>
+  <div id="myResults"></div>
+</section>
+
+<!-- COURSES -->
+<section id="sec-courses" class="panel">
+  <h2 class="sec-title">🎓 دليل اشتراكات الدورات — قدرات وتحصيلي</h2>
+  <p class="muted">نساعد الطالب على الوصول للدورة المناسبة: يضيف المعلم / صاحب المبادرة روابط الدورات المعتمدة، وتظهر هنا للجميع.</p>
+  <div class="card">
+    <h3>➕ إضافة دورة معتمدة (للمعلم / صاحب المبادرة)</h3>
+    <div class="row">
+      <input id="cName" placeholder="اسم الدورة: مثال: دورة المعاصر قدرات كمي">
+      <select id="cType" style="padding:10px;border-radius:10px;border:1px solid #cbd5e1"><option>قدرات</option><option>تحصيلي</option><option>قدرات + تحصيلي</option></select>
+      <input id="cUrl" placeholder="رابط الاشتراك...">
+      <input id="cNote" placeholder="ملاحظة: السعر / المدة (اختياري)">
+      <button class="btn primary" onclick="addCourse()">إضافة الدورة</button>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="filterCourses('all',this)">الكل</button>
+    <button class="tab" onclick="filterCourses('قدرات',this)">دورات القدرات</button>
+    <button class="tab" onclick="filterCourses('تحصيلي',this)">دورات التحصيلي</button>
+  </div>
+  <div id="courseGrid" class="grid3"></div>
+  <div class="notice">🏛️ <b>روابط رسمية موثوقة:</b> <a target="_blank" rel="noopener" href="https://etec.gov.sa">هيئة تقويم التعليم والتدريب (قياس)</a> للتعرف على الاختبارات ومواعيدها، ونسّق مع إدارة مدرستك التابعة لتعليم مكة قبل دفع أي اشتراك. لا تشترك إلا في الدورات التي يوصي بها معلمك.</div>
+</section>
+
+<!-- MUSTAQBAL -->
+<section id="sec-mustaqbal" class="panel">
+  <h2 class="sec-title">📱 تطبيق مستقبلهم — متابعة ولي الأمر</h2>
+  <p class="muted">حمّل التطبيق لمتابعة ابنك/ابنتك، وارفع تقدمه في الاختبارات المحاكية ليظهر مباشرة لصاحب المبادرة.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>⬇️ تحميل التطبيق</h3>
+      <p class="muted">روابط التحميل يضبطها صاحب المبادرة من الأسفل، وتظهر هنا للجميع.</p>
+      <div class="row">
+        <a id="dlAndroid" class="btn primary" style="text-decoration:none" target="_blank" rel="noopener" href="https://play.google.com/store">🤖 تحميل للأندرويد</a>
+        <a id="dlIos" class="btn primary" style="text-decoration:none" target="_blank" rel="noopener" href="https://www.apple.com/app-store/">🍎 تحميل للآيفون</a>
+      </div>
+      <div class="card" style="background:#f8fafc">
+        <h4>⚙️ ضبط روابط التحميل (صاحب المبادرة فقط)</h4>
+        <div class="row"><input id="setAndroid" placeholder="رابط متجر Google Play"><input id="setIos" placeholder="رابط App Store"><button class="btn" onclick="saveStoreLinks()">حفظ الروابط</button></div>
+      </div>
+      <h4>خطوات الربط:</h4>
+      <ol style="line-height:2;font-size:14px">
+        <li>حمّل تطبيق مستقبلهم وسجّل بنفس <b>اسم الطالب والمدرسة</b> المسجل في المنصة.</li>
+        <li>تابع درجات الاختبارات المحاكية أولاً بأول من التطبيق.</li>
+        <li>ارفع التقدم من النموذج المجاور ليصل لصاحب المبادرة فوراً.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>📤 رفع تقدم من تطبيق مستقبلهم</h3>
+      <p class="muted">ولي الأمر: أدخل بيانات التقدم كما تظهر في التطبيق.</p>
+      <label>اسم الطالب (كما في المنصة)</label><input id="mStudent" placeholder="اسم الطالب">
+      <label>المدرسة</label><input id="mSchool" placeholder="اسم المدرسة">
+      <label>الاختبار</label>
+      <select id="mExam"><option>محاكي القدرات الكمي</option><option>محاكي القدرات اللفظي</option><option>محاكي التحصيلي العلمي الشامل</option><option>اختبار خارجي عبر التطبيق</option></select>
+      <label>الدرجة (0 - 100)</label><input id="mScore" type="number" min="0" max="100" placeholder="مثال: 85">
+      <div class="row"><button class="btn primary" onclick="uploadMustaqbal()">رفع التقدم لصاحب المبادرة</button></div>
+      <div id="mustaqbalMsg"></div>
+    </div>
+  </div>
+  <h3>📊 آخر التقدم المرفوع عبر التطبيق</h3>
+  <div id="mustaqbalList"></div>
+</section>
+
+<!-- PARENT -->
+<section id="sec-parent" class="panel">
+  <h2 class="sec-title">👨‍👩‍👦 أيقونة ولي الأمر للمتابعة</h2>
+  <p class="muted">عزيزي ولي الأمر: أدخل اسم الطالب/الطالبة لعرض تقدمه ودرجاته وشهاداته.</p>
+  <div class="card row">
+    <input id="parentSearch" placeholder="اكتب اسم الطالب كما سجّل به...">
+    <button class="btn primary" onclick="parentFollow()">عرض تقرير الابن / الابنة</button>
+    <button class="btn" onclick="parentFollow(true)">عرض كل الطلاب (لنفس المدرسة)</button>
+  </div>
+  <div id="parentResult"></div>
+  <div class="notice">💡 نصائح لولي الأمر: شجع على 30 دقيقة يومياً، تابع متوسط الدرجات (المستهدف 80%+)، واطبع شهادات التحفيز. التعثر في الكمي غالباً سببه التأسيس في الكسور والنسب — راجع قسم الإثراءات مع ابنك.</div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="sec-dashboard" class="panel">
+  <h2 class="sec-title">📊 لوحة صاحب المبادرة — المؤشرات والإنجاز</h2>
+  <p class="muted">خاصة بالأستاذ عمر هرشان: مؤشرات حية + تحليل نتائج + طباعة تقرير.</p>
+  <div id="dashGate" class="card">
+    <h3>هذه اللوحة محمية</h3>
+    <p class="muted">أدخل رمز صاحب المبادرة لعرض المؤشرات (للتجربة: 1234)</p>
+    <div class="row"><input id="dashPass" type="password" placeholder="الرمز"><button class="btn primary" onclick="openDashboard()">فتح اللوحة</button></div>
+  </div>
+  <div id="dashBody" style="display:none">
+    <div class="grid4" id="dashCards"></div>
+    <h3>متوسط الدرجات حسب الاختبار</h3>
+    <div id="dashBars"></div>
+    <h3>سجل جميع الطلاب والإنجاز</h3>
+    <div class="row">
+      <input id="dashSearch" placeholder="بحث باسم أو مدرسة..." oninput="renderDashboard()">
+      <button class="btn" onclick="window.print()">🖨️ طباعة تقرير التحليل</button>
+      <button class="btn danger" onclick="clearData()">مسح كل البيانات</button>
+    </div>
+    <div id="dashTable"></div>
+    <div class="notice" id="dashInsight"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>الإدارة العامة للتعليم بمنطقة مكة المكرمة — مبادرة الأستاذ عمر هرشان للقدرات والتحصيلي</b><br>المراجع: ناصر عبدالكريم • المعاصر • المفكر • أينشتاين + التجميعات المهمة • جميع النتائج تُحفظ محلياً في جهاز المستخدم
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
